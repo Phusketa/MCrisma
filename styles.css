@@ -1463,15 +1463,65 @@ button {
         font-size: 2.1rem;
     }
 
-    .seq-step {
-        max-width: 90%;
-        left: 5% !important;
-        right: auto !important;
+    /* Mobile Scroll Sequence Adjustments: Hamburger on Top, Cards on Bottom */
+    #sequence-canvas {
+        top: 32% !important;
+        max-height: 50vh !important;
     }
 
-    .seq-step-1 { bottom: 15%; }
-    .seq-step-2 { top: 15%; }
-    .seq-step-3 { bottom: 10%; left: 50% !important; }
+    .sequence-overlays {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        padding-bottom: 2rem;
+    }
+
+    .seq-step {
+        width: 92% !important;
+        max-width: 380px !important;
+        left: 50% !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: 2.2rem !important;
+        transform: translateX(-50%) translateY(20px) scale(0.95) !important;
+    }
+
+    .seq-step.active {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1) !important;
+    }
+
+    .seq-card {
+        padding: 1.1rem 1.3rem !important;
+        border-left: none !important;
+        border-top: 3px solid var(--primary-500) !important;
+        background: rgba(255, 255, 255, 0.96) !important;
+        backdrop-filter: blur(16px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .seq-card .card-icon {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.4rem !important;
+    }
+
+    .seq-card h3 {
+        font-size: 1.15rem !important;
+        margin-bottom: 0.3rem !important;
+    }
+
+    .seq-card p {
+        font-size: 0.88rem !important;
+        margin-bottom: 0.7rem !important;
+        line-height: 1.4 !important;
+    }
+
+    .scroll-indicator {
+        bottom: 0.5rem !important;
+        font-size: 0.75rem !important;
+        opacity: 0.6;
+    }
 
     .modal-footer {
         flex-direction: column;
