@@ -75,12 +75,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let drawWidth, drawHeight;
 
-        if (canvasRatio > imgRatio) {
-            drawHeight = canvasHeight;
-            drawWidth = canvasHeight * imgRatio;
+        // Use COVER fit on mobile so the image touches left and right edges with 0 side margins!
+        const isMobile = window.innerWidth <= 768;
+
+        if (isMobile) {
+            // Mobile Edge-to-Edge Zoom: Zoom in 1.85x to make the hamburger character & halo fill 100% of the screen width with zero side margins!
+            drawWidth = canvasWidth * 1.85;
+            drawHeight = drawWidth / imgRatio;
         } else {
-            drawWidth = canvasWidth;
-            drawHeight = canvasWidth / imgRatio;
+            // Desktop CONTAIN mode
+            if (canvasRatio > imgRatio) {
+                drawHeight = canvasHeight;
+                drawWidth = canvasHeight * imgRatio;
+            } else {
+                drawWidth = canvasWidth;
+                drawHeight = canvasWidth / imgRatio;
+            }
         }
 
         const drawX = (canvasWidth - drawWidth) / 2;
