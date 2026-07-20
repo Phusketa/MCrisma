@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hambúrguer da Crisma 🍔 | Noite de Comunhão & Sabor</title>
+    <meta name="description" content="Garanta seu convite para o Hambúrguer da Crisma! Dia 08 de Agosto às 19h na Paróquia São José (Taquara). Hambúrguer completo, batata frita e refrigerante 400ml por R$ 30,00!">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-theme">
+
+    <!-- Header / Navbar -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <img src="Logo principal/Gemini_Generated_Image_xhcd5txhcd5txhcd.jpg" alt="Logo Crisma" class="logo-img">
+                <span class="brand-text">Hambúrguer da <span>Crisma</span></span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#hero" class="nav-link active">Início</a>
+                <a href="#scroll-experience" class="nav-link">O Evento</a>
+                <a href="#chamado" class="nav-link">Nossa Missão</a>
+                <a href="#comprar" class="nav-link">Garantir Convite</a>
+                <a href="#doar" class="nav-link">Doe um Convite</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn btn-outline-heart" id="btn-open-pix-nav" onclick="openPixModal()">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Doe Agora</span>
+                </button>
+                <a href="#comprar" class="btn btn-primary btn-pulse">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Comprar Convite</span>
+                </a>
+            </div>
+            
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-header">
+            <img src="Logo principal/Gemini_Generated_Image_xhcd5txhcd5txhcd.jpg" alt="Logo Crisma" class="logo-img-sm">
+            <button class="drawer-close" id="drawer-close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <nav class="drawer-links">
+            <a href="#hero" onclick="closeDrawer()">Início</a>
+            <a href="#scroll-experience" onclick="closeDrawer()">O Evento</a>
+            <a href="#chamado" onclick="closeDrawer()">Nossa Missão</a>
+            <a href="#comprar" onclick="closeDrawer()">Garantir Convite</a>
+            <a href="#doar" onclick="closeDrawer()">Doe um Convite</a>
+        </nav>
+        <div class="drawer-actions">
+            <a href="#comprar" class="btn btn-primary btn-full" onclick="closeDrawer()">
+                <i class="fa-solid fa-ticket"></i> Garantir Convite (R$ 30)
+            </a>
+            <button class="btn btn-outline-heart btn-full" onclick="closeDrawer(); openPixModal();">
+                <i class="fa-solid fa-heart"></i> Fazer uma Doação
+            </button>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-bg-overlay"></div>
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="badge-hero">
+                        <i class="fa-solid fa-calendar-star"></i>
+                        <span>08 de Agosto às 19h (Após a Missa)</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Alimentando a <span class="gradient-text">Fé</span> e Unindo a nossa <span class="accent-text">Comunidade</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Venha saborear um delicioso combo com <strong>Hambúrguer completo + Batata Frita + Refrigerante 400ml</strong> feito com muito carinho. Sua participação fortalece os encontros e projetos da nossa Crisma!
+                    </p>
+
+                    <div class="hero-price-card">
+                        <div class="price-tag">
+                            <span class="currency">R$</span>
+                            <span class="amount">30</span>
+                            <span class="cents">,00</span>
+                        </div>
+                        <div class="price-info">
+                            <span class="price-title">Combo Completo</span>
+                            <span class="price-subtitle">Hambúrguer + Batata Frita + Refri 400ml</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-cta-group">
+                        <a href="#comprar" class="btn btn-primary btn-lg">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span>Garantir Meu Convite</span>
+                        </a>
+                        <button class="btn btn-secondary btn-lg" onclick="openPixModal()">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            <span>Doe para o Evento</span>
+                        </button>
+                    </div>
+
+                    <div class="hero-highlights">
+                        <div class="highlight-item">
+                            <i class="fa-solid fa-church"></i>
+                            <span>Paróquia São José</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fa-solid fa-burger"></i>
+                            <span>Combo Completo</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fa-solid fa-people-group"></i>
+                            <span>Ambiente Familiar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-media">
+                    <div class="hero-card-frame">
+                        <div class="glow-effect"></div>
+                        <img src="Logo principal/Gemini_Generated_Image_xhcd5txhcd5txhcd.jpg" alt="Logo Hambúrguer da Crisma" class="hero-logo-main">
+                        <div class="hero-card-floating-badge">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Taquara - Jacarepaguá</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scroll Sequence Section (Hambúrguer Feliz Animation) -->
+        <section class="scroll-sequence-section" id="scroll-experience">
+            <div class="scroll-sticky-wrapper">
+                <canvas id="sequence-canvas"></canvas>
+                
+                <div class="sequence-overlays container">
+                    <!-- Overlay Step 1 -->
+                    <div class="seq-step seq-step-1 active" id="step-1">
+                        <div class="glass-card seq-card">
+                            <div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                            <h3>Feito com Amor e Carinho</h3>
+                            <p>Um combo delicioso de Hambúrguer completo, batata frita crocante e refrigerante geladinho para você saborear.</p>
+                        </div>
+                    </div>
+
+                    <!-- Overlay Step 2 -->
+                    <div class="seq-step seq-step-2" id="step-2">
+                        <div class="glass-card seq-card">
+                            <div class="card-icon"><i class="fa-solid fa-face-smile-beam"></i></div>
+                            <h3>Noite de Comunhão!</h3>
+                            <p>Dia 08 de Agosto às 19h, logo após a missa na Paróquia São José. Traga toda a sua família!</p>
+                        </div>
+                    </div>
+
+                    <!-- Overlay Step 3 -->
+                    <div class="seq-step seq-step-3" id="step-3">
+                        <div class="glass-card seq-card highlighted-step">
+                            <div class="card-icon"><i class="fa-solid fa-gift"></i></div>
+                            <h3>Transforme Vidas!</h3>
+                            <p>Toda a renda é 100% destinada aos encontros, retiros e atividades dos jovens crispaceiros.</p>
+                            <a href="#comprar" class="btn btn-sm btn-primary">Garantir Meu Convite Agora</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scroll-indicator">
+                    <span>Role para ver o hambúrguer feliz</span>
+                    <i class="fa-solid fa-chevron-down bounce"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Church Call & Mission Section -->
+        <section class="mission-section" id="chamado">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle"><i class="fa-solid fa-church"></i> Um Chamado Especial</span>
+                    <h2 class="section-title">Por que sua presença é <span class="gradient-text">fundamental</span>?</h2>
+                    <p class="section-desc">
+                        A Igreja é viva quando nos reunimos como irmãos. O Hambúrguer da Crisma é um momento especial para celebrar a fé, abraçar amigos e apoiar a juventude na caminhada com Deus.
+                    </p>
+                </div>
+
+                <div class="mission-grid">
+                    <div class="mission-card glass-card">
+                        <div class="mission-icon">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                        </div>
+                        <h3>Fortalecimento dos Jovens</h3>
+                        <p>A Crisma proporciona aos adolescentes um encontro pessoal transformador com Cristo. Adquirindo seu convite, você ajuda a financiar retiros e formações.</p>
+                    </div>
+
+                    <div class="mission-card glass-card highlight-border">
+                        <div class="mission-icon accent">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3>Comunhão em Família</h3>
+                        <p>Traga seus filhos, pais e amigos! Preparamos um ambiente alegre e acolhedor logo após a missa para compartilharmos este momento.</p>
+                    </div>
+
+                    <div class="mission-card glass-card">
+                        <div class="mission-icon">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>Solidariedade Viva</h3>
+                        <p>Através das doações comunitárias, presenteamos pessoas que não teriam condições de comprar com um convite gratuito para o evento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details Bar -->
+        <section class="event-details-section">
+            <div class="container">
+                <div class="event-details-card glass-card">
+                    <div class="detail-box">
+                        <i class="fa-regular fa-calendar-check"></i>
+                        <div>
+                            <h4>Data & Horário</h4>
+                            <p><strong>08 de Agosto (Quinta-feira) às 19h</strong> (Logo após a Missa)</p>
+                        </div>
+                    </div>
+                    <div class="detail-divider"></div>
+                    <div class="detail-box">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Localização</h4>
+                            <p><strong>Paróquia São José</strong><br>Estrada do Mapuá, 784 - Taquara</p>
+                        </div>
+                    </div>
+                    <div class="detail-divider"></div>
+                    <div class="detail-box">
+                        <i class="fa-solid fa-utensils"></i>
+                        <div>
+                            <h4>O que está incluso?</h4>
+                            <p><strong>Combo R$ 30,00:</strong> Hambúrguer completo + Batata Frita + Refri 400ml</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ticket Purchase Section (WhatsApp Checkout) -->
+        <section class="purchase-section" id="comprar">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle"><i class="fa-solid fa-ticket"></i> Ingressos Oficiais</span>
+                    <h2 class="section-title">Garanta o seu <span class="gradient-text">Convite</span></h2>
+                    <p class="section-desc">Selecione a quantidade de convites desejada. Você será direcionado diretamente para o nosso WhatsApp para concluir o pedido!</p>
+                </div>
+
+                <div class="purchase-container glass-card">
+                    <div class="purchase-media">
+                        <div class="ticket-preview-wrapper">
+                            <img src="Convite/convite_limpo.png" alt="Convite Oficial Hambúrguer da Crisma" class="ticket-img">
+                            <div class="ticket-badge">
+                                <i class="fa-solid fa-circle-check"></i> Convite Oficial
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="purchase-form-wrapper">
+                        <div class="form-header">
+                            <h3>Hambúrguer da Crisma</h3>
+                            <div class="unit-price">R$ 30,00 <span class="unit-label">/ combo</span></div>
+                        </div>
+
+                        <div class="features-list">
+                            <div class="feature-item"><i class="fa-solid fa-check text-success"></i> <strong>Hambúrguer completo</strong> caprichado</div>
+                            <div class="feature-item"><i class="fa-solid fa-check text-success"></i> <strong>Porção de Batata Frita</strong> crocante</div>
+                            <div class="feature-item"><i class="fa-solid fa-check text-success"></i> <strong>Refrigerante 400ml</strong> geladinho</div>
+                            <div class="feature-item"><i class="fa-solid fa-check text-success"></i> Apoio 100% aos projetos da Crisma</div>
+                        </div>
+
+                        <div class="quantity-selector-container">
+                            <label for="ticket-qty" class="qty-label">Quantidade de Convites:</label>
+                            <div class="qty-control">
+                                <button type="button" class="qty-btn" id="btn-minus" aria-label="Diminuir quantidade">
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
+                                <input type="number" id="ticket-qty" value="1" min="1" max="50" readonly>
+                                <button type="button" class="qty-btn" id="btn-plus" aria-label="Aumentar quantidade">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="price-summary">
+                            <span class="summary-label">Valor Total:</span>
+                            <span class="summary-total" id="total-price-display">R$ 30,00</span>
+                        </div>
+
+                        <button type="button" class="btn btn-whatsapp btn-full btn-lg" id="btn-buy-whatsapp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>Comprar via WhatsApp</span>
+                        </button>
+
+                        <p class="whatsapp-note">
+                            <i class="fa-solid fa-lock"></i> Contato direto com a equipe no número <strong>+55 (21) 98013-0910</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donation Section (Doe um convite / Pix) -->
+        <section class="donation-section" id="doar">
+            <div class="container">
+                <div class="donation-card glass-card">
+                    <div class="donation-grid">
+                        <div class="donation-info">
+                            <div class="badge-donation">
+                                <i class="fa-solid fa-heart"></i> Gesto de Amor & Solidariedade
+                            </div>
+                            <h2>Não pode ir ao evento? <span class="gradient-text">Faça uma Doação!</span></h2>
+                            <p class="donation-lead">
+                                Você pode contribuir com qualquer valor para abençoar a juventude da nossa paróquia.
+                            </p>
+                            
+                            <div class="donation-impact-box">
+                                <div class="impact-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+                                <div class="impact-text">
+                                    <strong>Conversão em Convites Solidários:</strong>
+                                    <span>A cada <strong>R$ 30,00</strong> doados, geramos um combo de convite gratuito para quem não tem condições de comprar!</span>
+                                </div>
+                            </div>
+
+                            <ul class="donation-benefits">
+                                <li><i class="fa-solid fa-shield-heart"></i> Doação transparente via PIX com QR Code</li>
+                                <li><i class="fa-solid fa-user-plus"></i> Permita que mais famílias participem do evento</li>
+                                <li><i class="fa-solid fa-seedling"></i> Apoio direto aos encontros e retiros da Crisma</li>
+                            </ul>
+
+                            <button class="btn btn-primary btn-lg" onclick="openPixModal()">
+                                <i class="fa-solid fa-qrcode"></i>
+                                <span>Ver QR Code PIX para Doação</span>
+                            </button>
+                        </div>
+
+                        <div class="donation-visual">
+                            <div class="pix-preview-wrapper" onclick="openPixModal()">
+                                <img src="QRCODE-PIX/qrcodepix.jpg" alt="QR Code Pix doação" class="pix-thumbnail">
+                                <div class="pix-overlay-hover">
+                                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                                    <span>Clique para ampliar o Pix</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <img src="Logo principal/Gemini_Generated_Image_xhcd5txhcd5txhcd.jpg" alt="Logo Hambúrguer da Crisma" class="footer-logo">
+                <div>
+                    <h3>Hambúrguer da Crisma</h3>
+                    <p>Unindo a juventude e a comunidade na fé e no amor.</p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#scroll-experience">O Evento</a></li>
+                    <li><a href="#chamado">Nossa Missão</a></li>
+                    <li><a href="#comprar">Garantir Convite</a></li>
+                    <li><a href="#doar">Fazer Doação</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Local & Contato</h4>
+                <p><i class="fa-solid fa-church"></i> Paróquia São José</p>
+                <p><i class="fa-solid fa-location-dot"></i> Estrada do Mapuá, 784 - Taquara</p>
+                <p><i class="fa-calendar-days"></i> 08 de Agosto às 19h (Após a Missa)</p>
+                <p><i class="fa-brands fa-whatsapp"></i> +55 (21) 98013-0910</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container text-center">
+                <p>&copy; 2026 Hambúrguer da Crisma - Paróquia São José. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Pix Donation Modal -->
+    <div class="modal-backdrop" id="modal-pix" onclick="closePixModalOnBackdrop(event)">
+        <div class="modal-content glass-card">
+            <button class="modal-close" onclick="closePixModal()" aria-label="Fechar Modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal-header text-center">
+                <div class="modal-icon"><i class="fa-solid fa-heart-circle-check"></i></div>
+                <h3 class="modal-title">Doação via QR Code PIX</h3>
+                <p class="modal-subtitle">Doe qualquer valor ou financie convites (R$ 30 cada)</p>
+            </div>
+
+            <div class="modal-body text-center">
+                <div class="pix-qrcode-container">
+                    <img src="QRCODE-PIX/qrcodepix.jpg" alt="QR Code Pix" class="pix-modal-img">
+                </div>
+
+                <div class="pix-notice">
+                    <p>Aponte a câmera do aplicativo do seu banco para o QR Code acima para realizar a sua contribuição.</p>
+                </div>
+
+                <div class="pix-info-card">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Dúvidas ou envio do comprovante pelo WhatsApp: <strong>(21) 98013-0910</strong></span>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary btn-full" onclick="closePixModal()">
+                    <span>Fechar</span>
+                </button>
+                <a href="https://wa.me/5521980130910?text=Ol%C3%A1!%20Fiz%20uma%20doa%C3%A7%C3%A3o%20via%20PIX%20para%20o%20Hamb%C3%Barguer%20da%20Crisma%20e%20gostaria%20de%20enviar%20o%20comprovante!" target="_blank" class="btn btn-whatsapp btn-full">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>Enviar Comprovante</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toast">
+        <i class="fa-solid fa-check-circle"></i>
+        <span id="toast-message">Notificação</span>
+    </div>
+
+    <!-- Application JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
