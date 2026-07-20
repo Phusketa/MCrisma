@@ -1,9 +1,8 @@
 /**
  * Hambúrguer da Crisma - Main Application JavaScript
- * Updates:
- * - Event Date: 08 de Agosto às 19h (após a missa)
- * - Location: Paróquia São José - Estrada do Mapuá, 784 - Taquara
- * - Combo: Hambúrguer completo + Batata Frita + Refrigerante 400ml
+ * Fixes:
+ * 1. Resolved mobile/retina double-scaling canvas bug (dpr scaling in renderFrame)
+ * 2. Optimized touch/scroll image sequence performance
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -87,20 +86,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const drawX = (canvasWidth - drawWidth) / 2;
         const drawY = (canvasHeight - drawHeight) / 2;
 
+        // Reset transform to avoid cumulative scaling bugs
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
         ctx.clearRect(0, 0, canvasWidth, canvasHeight);
         ctx.drawImage(img, drawX, drawY, drawWidth, drawHeight);
     }
 
     function resizeCanvas() {
         const container = canvas.parentElement;
+        if (!container) return;
+        
         const rect = container.getBoundingClientRect();
-        
         const dpr = window.devicePixelRatio || 1;
-        canvas.width = rect.width * dpr;
-        canvas.height = rect.height * dpr;
+
+        // Set backing store dimensions to physical device pixels
+        canvas.width = Math.floor(rect.width * dpr);
+        canvas.height = Math.floor(rect.height * dpr);
         
-        ctx.scale(dpr, dpr);
-        
+        // CSS display size
         canvas.style.width = `${rect.width}px`;
         canvas.style.height = `${rect.height}px`;
 
@@ -108,6 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('orientationchange', () => {
+        setTimeout(resizeCanvas, 100);
+    });
 
     // ----------------------------------------------------------------------
     // 4. Scroll Sync Logic
@@ -123,6 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const rect = scrollSection.getBoundingClientRect();
         const sectionHeight = scrollSection.offsetHeight - window.innerHeight;
         
+        if (sectionHeight <= 0) return;
+
         let progress = -rect.top / sectionHeight;
         progress = Math.max(0, Math.min(1, progress));
 
@@ -157,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    window.addEventListener('scroll', handleScrollSequence);
+    window.addEventListener('scroll', handleScrollSequence, { passive: true });
 
     // ----------------------------------------------------------------------
     // 5. Ticket Quantity Selector & WhatsApp Checkout
@@ -192,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Direct Order via WhatsApp with complete details
+    // Direct Order via WhatsApp
     if (btnBuyWhatsapp) {
         btnBuyWhatsapp.addEventListener('click', () => {
             const qty = parseInt(inputQty.value, 10) || 1;
